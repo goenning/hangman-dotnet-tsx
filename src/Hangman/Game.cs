@@ -25,12 +25,16 @@ namespace Hangman
 
         public Game(string word, GameOptions options)
         {
+            this._options = options ?? new GameOptions();
+
             if (string.IsNullOrWhiteSpace(word))
-                word = options.AvailableWords.Random();
+                word = this._options.AvailableWords.Random();
+
+            if (!_validChars.IsMatch(word))
+                throw new ArgumentException("Invalid word was given.", "word");
 
             this._word = word;
             this._lcWord = word.ToLower();
-            this._options = options;
             this._misses = new HashSet<char>();
             this._guesses = new HashSet<char>();
             this._letters = Enumerable.Repeat('_', this._word.Length).ToList();
@@ -94,7 +98,7 @@ namespace Hangman
             get { return this._letters; }
         }
 
-        private static Regex _validChars = new Regex("[a-zA-Z0-9]");
+        private static Regex _validChars = new Regex("^[a-zA-Z0-9]+$");
         private readonly GameOptions _options;
         private readonly string _word;
         private readonly string _lcWord;

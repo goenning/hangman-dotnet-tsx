@@ -2,7 +2,7 @@
 
 export interface LetterProperties {
     value: string;
-    onGuess: (letter: string) => void;
+    onGuess: (letter: string, cb: (correct: boolean) => void) => void;
 }
 
 export interface LetterState {
@@ -16,8 +16,13 @@ export class Letter extends React.Component<LetterProperties, LetterState> {
     }
 
     guess() {
-        this.setState({ enabled: false, correct: true });
-        this.props.onGuess(this.props.value);
+        this.props.onGuess(this.props.value, (correct) => {
+            this.setState({ enabled: false, correct });
+        });
+    }
+
+    reset() {
+        this.setState({ enabled: true });
     }
 
     getCssClass() {

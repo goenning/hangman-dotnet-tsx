@@ -19,6 +19,25 @@ namespace Hangman.Test
             Assert.Equal(game.Word, "Moon");
         }
 
+        [Theory, MemberData("InvalidWords")]
+        public void ShouldThrowErrorWhenUsingInvalidWord(string word)
+        {
+            Assert.Throws<ArgumentException>(() => new Game(word));
+        }
+
+        public static IEnumerable<object> InvalidWords
+        {
+            get
+            {
+                return new object[]
+                {
+                    new string[] { "hi@gmail" },
+                    new string[] { "hello+world" },
+                    new string[] { "hello world" }
+                };
+            }
+        }
+
         [Fact]
         public void ShouldStartWithDefaultValues()
         {
@@ -31,12 +50,18 @@ namespace Hangman.Test
             Assert.Equal(game.RemainingMissesCount, 6);
         }
 
-
         [Fact]
         public void ShouldUseDefaultValuesWhenOptionsIsNotSet()
         {
             var game = new Game();
             Assert.Equal(game.RemainingMissesCount, defaultOptions.MaxMisses);
+            Assert.Contains(game.Word, defaultOptions.AvailableWords);
+        }
+
+        [Fact]
+        public void ShouldUseDefaultValuesWhenWordIsNull()
+        {
+            var game = new Game((string)null);
             Assert.Contains(game.Word, defaultOptions.AvailableWords);
         }
 
@@ -81,7 +106,7 @@ namespace Hangman.Test
         [Fact]
         public void ShouldNotChangeStatusWhenGuessingWrongLetter()
         {
-            var game = new Game("Moon", customOptions);
+            var game = new Game("Moon");
             game.Guess('k');
             Assert.Equal(game.Letters, new char[] { '_', '_', '_', '_' });
         }
@@ -142,7 +167,6 @@ namespace Hangman.Test
                     yield return new object[] { letter };
             }
         }
-
 
         [Theory, MemberData("InvalidLetters")]
         public void ShouldThrowErrorWhenGuessingInvalidLetter(char letter)
