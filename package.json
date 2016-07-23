@@ -1,0 +1,23 @@
+{
+  "name": "hangman-dotnet-tsx",
+  "version": "1.0.0",
+  "description": "Demo application for React in TypeScript with ASP.NET Web API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goenning/hangman-dotnet-tsx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goenning/hangman-dotnet-tsx/issues"
+  },
+  "homepage": "https://github.com/goenning/hangman-dotnet-tsx#readme",
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}

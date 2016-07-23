@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F28A1BE-CDCB-47DE-A95F-7C98D67B0B82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{27FAA643-4AF0-4963-B932-A4E48FA98435}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		package.json = package.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "src\Hangman\Hangman.csproj", "{7CFF4482-F507-4DF1-8B75-53D4C95200A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{57A8983E-24D5-4A76-A8CE-2BEDD0DAA3F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Test", "tests\Hangman.Test\Hangman.Test.csproj", "{DAAF38FD-3774-463E-A9CE-96EDE568DFD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Http", "src\Hangman.Http\Hangman.Http.csproj", "{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CFF4482-F507-4DF1-8B75-53D4C95200A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFF4482-F507-4DF1-8B75-53D4C95200A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFF4482-F507-4DF1-8B75-53D4C95200A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFF4482-F507-4DF1-8B75-53D4C95200A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAF38FD-3774-463E-A9CE-96EDE568DFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAF38FD-3774-463E-A9CE-96EDE568DFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAF38FD-3774-463E-A9CE-96EDE568DFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAF38FD-3774-463E-A9CE-96EDE568DFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7CFF4482-F507-4DF1-8B75-53D4C95200A4} = {5F28A1BE-CDCB-47DE-A95F-7C98D67B0B82}
+		{DAAF38FD-3774-463E-A9CE-96EDE568DFD6} = {57A8983E-24D5-4A76-A8CE-2BEDD0DAA3F0}
+		{1B908688-EE04-43D8-9E4E-FBCDF2D68FC1} = {5F28A1BE-CDCB-47DE-A95F-7C98D67B0B82}
+	EndGlobalSection
+EndGlobal
