@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/goenning/hangman-dotnet-tsx#readme",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "source-map-loader": "^0.1.5",

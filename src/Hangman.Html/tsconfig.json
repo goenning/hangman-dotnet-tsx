@@ -9,7 +9,8 @@
   },
   "files": [
     "../../typings/index.d.ts",
-    "./Components/Hello.tsx",
+    "./Components/Game.tsx",
+    "./Components/Letter.tsx",
     "./index.tsx"
   ]
 }

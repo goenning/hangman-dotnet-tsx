@@ -1,9 +1,9 @@
 ﻿import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Hello } from "./Components/Hello";
+import { Game } from "./Components/Game";
 
 ReactDOM.render(
-    <Hello compiler="TypeScript 3" framework="React" />,
-    document.getElementById("example")
+    <Game />,
+    document.getElementById("bootstrap")
 );
