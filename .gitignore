@@ -1,5 +1,8 @@
-node_modules
-packages
+node_modules/
+packages/
 .vs
-bin
-obj
+bin/
+obj/
+dist/
+typings/
+src/Hangman.Html/**/*.js

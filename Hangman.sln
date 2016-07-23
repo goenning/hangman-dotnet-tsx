@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{27FAA643-4
 		.gitignore = .gitignore
 		package.json = package.json
 		README.md = README.md
+		tsconfig.json = tsconfig.json
+		typings.json = typings.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "src\Hangman\Hangman.csproj", "{7CFF4482-F507-4DF1-8B75-53D4C95200A4}"
