@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "node_modules/": true,
+        ".vscode/": true,
+        "dist/": true,
+        "**/bin/": true,
+        "**/obj/": true
+    }
+}
