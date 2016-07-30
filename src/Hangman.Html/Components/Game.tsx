@@ -8,12 +8,12 @@ export interface GameProperties
 }
 
 export interface GameState {
-    Status: number;
-    Guesses?: string[];
-    Letters?: string[];
-    Id?: string;
-    Word?: string;
-    RemainingMissesCount?: number;
+    status: number;
+    guesses?: string[];
+    letters?: string[];
+    id?: string;
+    word?: string;
+    remainingMissesCount?: number;
 }
 
 export class Game extends React.Component<GameProperties, GameState> {
@@ -22,7 +22,7 @@ export class Game extends React.Component<GameProperties, GameState> {
     componentWillMount() {
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
-        this.setState({ Status: 0 });
+        this.setState({ status: 0 });
     }
 
     newGame() {
@@ -41,23 +41,23 @@ export class Game extends React.Component<GameProperties, GameState> {
     }
 
     guess(letter: string, cb:(correct:boolean) => void) {
-        fetch(`${this.props.endpoint}/guess/${this.state.Id}/${letter}`, {
+        fetch(`${this.props.endpoint}/guess/${this.state.id}/${letter}`, {
             method: 'POST',
             headers: this.headers
         }).then((response) => {
             return response.json();
         }).then(((response: GameState) => {
             this.setState(response);
-            let correct = response.Letters.indexOf(letter) >= 0;
+            let correct = response.letters.indexOf(letter) >= 0;
             cb(correct);
         }).bind(this));
     }
 
     render() {
-        var game = this.state.Status > 0 ?
+        var game = this.state.status > 0 ?
             <div>
-                <h1>{this.state.Letters.join(' ') }</h1>
-                <h1>You still have {this.state.RemainingMissesCount} chances!</h1>
+                <h1>{this.state.letters.join(' ') }</h1>
+                <h1>You still have {this.state.remainingMissesCount} chances!</h1>
                 <div id="letters" className="row">
                     <div className="col-md-5 col-sm-8 col-xs-8">
                         {'1234567890abcdefghijklmnopqrstuvwxyz'.split('').map((el, i) =>
