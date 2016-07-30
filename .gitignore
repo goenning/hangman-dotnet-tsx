@@ -6,3 +6,4 @@ obj/
 dist/
 typings/
 src/Hangman.Html/**/*.js
+*.log

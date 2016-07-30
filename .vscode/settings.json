@@ -6,6 +6,7 @@
         ".vscode/": true,
         "dist/": true,
         "**/bin/": true,
-        "**/obj/": true
+        "**/obj/": true,
+        "*.log": true
     }
 }

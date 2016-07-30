@@ -10,3 +10,20 @@ Next steps:
 4) Multiple strategies for Game instances storage (Redis, Mongo, InMemory)
 
 ![](example.png)
+
+## How to build & run this project
+
+```
+$ cd path/to/project
+$ npm install
+$ typings install
+$ npm start #this command will run webpack & dotnet run the API project
+```
+
+Yes, this is a .Net project and not a Node one.
+
+## But why use npm to run the project and tests?
+
+.Net CLI is still very poor and you can't really do much with it.
+NPM Scripts on the other hand is extremely stable & powerful by now.
+Use the best tool for job, right?

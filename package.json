@@ -4,7 +4,8 @@
   "description": "Demo application for React in TypeScript with ASP.NET Web API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack && cd src/Hangman.Api && dotnet run",
+    "test": "cd tests/Hangman.Test && dotnet test"
   },
   "repository": {
     "type": "git",
