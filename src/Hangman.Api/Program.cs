@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Http;
 
 namespace Hangman.Api
 {
