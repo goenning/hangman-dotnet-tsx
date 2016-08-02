@@ -22,7 +22,7 @@ $ npm start
 ```
 
 NPM start will run webpack & dotnet run the API project
-Open `index.html` with your favorite browser. (the backend is not serving the static files yet)
+Open `http://localhost:/5000` with your favorite browser.
 Yes, this is a .Net project and not a Node one.
 
 ## But why use npm to run the project and tests?
