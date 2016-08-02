@@ -1,16 +1,24 @@
 ﻿using Xunit;
 using Hangman.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Hangman.Api.ViewModels;
+using Hangman.Api.Storages;
 
 namespace Hangman.Test
 {
     public class ApiTest
     {
+        private GameController controller;
+
+        public ApiTest()
+        {
+            this.controller = new GameController(new InMemoryGameStorage());
+        }
+
         [Fact]
         public void ShouldStartNewGameWhenPostingToNew()
         {
-            var controller = new GameController();
-            var result = controller.New("banana") as OkObjectResult;
+            var result = this.controller.New("banana") as OkObjectResult;
             var content = result.Value as GameStateResult;
             Assert.NotNull(result);
             Assert.NotNull(content.Id);
@@ -23,8 +31,7 @@ namespace Hangman.Test
         [Fact]
         public void ShouldAddToGuessListWhenPostingToGameGuess()
         {
-            var controller = new GameController();
-            var game = controller.New("banana") as OkObjectResult;
+            var game = this.controller.New("banana") as OkObjectResult;
             var content = game.Value as GameStateResult;
             
             var result = controller.Guess(content.Id, 'a') as OkObjectResult;
@@ -40,8 +47,7 @@ namespace Hangman.Test
         [Fact]
         public void ShouldReturnWordWhenGameIsWon()
         {
-            var controller = new GameController();
-            var game = controller.New("banana") as OkObjectResult;
+            var game = this.controller.New("banana") as OkObjectResult;
             var content = game.Value as GameStateResult;
             controller.Guess(content.Id, 'a');
             controller.Guess(content.Id, 'b');
@@ -59,8 +65,7 @@ namespace Hangman.Test
         [Fact]
         public void ShouldReturnWordWhenGameIsLost()
         {
-            var controller = new GameController();
-            var game = controller.New("banana") as OkObjectResult;
+            var game = this.controller.New("banana") as OkObjectResult;
             var content = game.Value as GameStateResult;
             controller.Guess(content.Id, '1');
             controller.Guess(content.Id, '2');

@@ -1,8 +1,5 @@
-﻿using Hangman;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
-using System.Linq;
-using Xunit.Extensions;
 using System;
 
 namespace Hangman.Test

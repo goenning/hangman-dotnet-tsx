@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hangman.Api.Controllers
+namespace Hangman.Api.ViewModels
 {
     public class GameStateResult
     {
