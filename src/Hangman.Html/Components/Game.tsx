@@ -48,16 +48,24 @@ export class Game extends React.Component<GameProperties, GameState> {
             return response.json();
         }).then(((response: GameState) => {
             this.setState(response);
-            let correct = response.letters.indexOf(letter) >= 0;
+            let correct = response.letters.map(x => x.toLowerCase()).indexOf(letter) >= 0;
             cb(correct);
         }).bind(this));
     }
 
     render() {
-        var game = this.state.status > 0 ?
+        var message = this.state.status == 2 ?
+            <div className="alert alert-success">
+                <strong>You Won!</strong> The word is {this.state.word}.
+            </div> : this.state.status == 3 ? 
+            <div className="alert alert-danger">
+                <strong>You Lost!</strong> The word is {this.state.word}.
+            </div> : null;
+
+        var game = this.state.status == 1 ?
             <div>
                 <h1>{this.state.letters.join(' ') }</h1>
-                <h1>You still have {this.state.remainingMissesCount} chances!</h1>
+                <h4>You still have {this.state.remainingMissesCount} chances!</h4>
                 <div id="letters" className="row">
                     <div className="col-md-5 col-sm-8 col-xs-8">
                         {'1234567890abcdefghijklmnopqrstuvwxyz'.split('').map((el, i) =>
@@ -69,6 +77,7 @@ export class Game extends React.Component<GameProperties, GameState> {
 
         return <div>
             <button type="button" className="btn btn-primary" onClick={this.newGame.bind(this)}>Start new game!</button>
+            { message }
             { game }
         </div>;
     }
