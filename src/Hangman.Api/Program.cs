@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace Hangman.Api
 {
@@ -12,6 +14,7 @@ namespace Hangman.Api
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
 
@@ -37,7 +40,10 @@ namespace Hangman.Api
 
         public void Configure(IApplicationBuilder app)
         {
+            IFileProvider fileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "../../dist/"));
             app.UseCors("AllowAll");
+            app.UseDefaultFiles(new DefaultFilesOptions { FileProvider = fileProvider });    
+            app.UseStaticFiles(new StaticFileOptions { FileProvider = fileProvider });   
             app.UseMvc();
         }
     }
