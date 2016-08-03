@@ -3,10 +3,13 @@
 `Work in still progress`
 
 Next steps:
-1) Show messages of Won / Lost when game ends; (DONE...)
-2) Port to .Net Core; (DONE...)
-3) Serve static files from Backend (DONE...)
-4) Multiple strategies for Game instances storage (Redis, Mongo, InMemory)
+1) Show messages of Won / Lost when game ends; (done...)
+2) Port to .Net Core; (done...)
+3) Serve static files from Backend (done...)
+4) Multiple strategies for Game instances storage 
+- MongoDb (waiting MongoDb Driver support for .Net Core)
+- InMemory: (done...)
+- Redis: (in progres...)
 5) Host it on Heroku;
 
 ![](example.png)
